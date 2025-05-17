@@ -1,0 +1,24 @@
+XML File (student.xml):
+
+<?xml version="1.0"?>
+<student xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="student.xsd">
+    <name>John</name>
+    <rollno>101</rollno>
+    <dept>CSE</dept>
+</student>
+
+XML Schema (student.xsd):
+
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="student">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="rollno" type="xs:int"/>
+                <xs:element name="dept" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
