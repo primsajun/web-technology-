@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple World Map</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #info {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h2>World Map - Click on a Continent</h2>
+    
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" 
+         usemap="#worldmap" 
+         width="800" 
+         height="400" 
+         alt="World map">
+
+    <map name="worldmap">
+        <!-- Simple rectangular areas for each continent -->
+        <area shape="rect" coords="500,50,700,250" alt="Asia" onclick="showRegion('Asia')">
+        <area shape="rect" coords="400,50,500,150" alt="Europe" onclick="showRegion('Europe')">
+        <area shape="rect" coords="400,150,500,300" alt="Africa" onclick="showRegion('Africa')">
+        <area shape="rect" coords="100,50,300,200" alt="North America" onclick="showRegion('North America')">
+        <area shape="rect" coords="150,200,300,350" alt="South America" onclick="showRegion('South America')">
+        <area shape="rect" coords="650,250,750,350" alt="Australia" onclick="showRegion('Australia')">
+    </map>
+
+    <div id="info">Click on a continent to see its name.</div>
+
+    <script>
+        function showRegion(region) {
+            document.getElementById('info').textContent = "You selected: " + region;
+        }
+    </script>
+</body>
+</html>
