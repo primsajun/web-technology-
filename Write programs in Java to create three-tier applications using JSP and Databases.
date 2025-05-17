@@ -1,0 +1,23 @@
+Tier 1 - HTML Form:
+
+<form action="login.jsp" method="post">
+    Username: <input type="text" name="username"><br>
+    <input type="submit" value="Login">
+</form>
+
+Tier 2 - JSP Page (login.jsp):
+
+<%@ page import="java.sql.*" %>
+<%
+    String user = request.getParameter("username");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/test", "root", "password");
+    Statement stmt = con.createStatement();
+    ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE username='" + user + "'");
+    if(rs.next()) {
+        out.println("Welcome, " + user);
+    } else {
+        out.println("User not found");
+    }
+%>
+
+Tier 3 - Database: MySQL table users(username VARCHAR(50))
